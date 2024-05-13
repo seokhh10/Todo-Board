@@ -18,10 +18,11 @@ function renderTaskList() {
 }
 
 // Todo: create a function to handle adding a new task
-function handleAddTask(event){
-
-}
-
+$(document).ready(function(){
+    $("#addTask").click(function(){
+    $("#myModal").modal('show');
+    });
+  });
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event){
 

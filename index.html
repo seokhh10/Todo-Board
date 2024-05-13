@@ -17,14 +17,46 @@
 
 <body>
   <header class="p-4 mb-4 text-center border-bottom border-5">
-    <h1 class="display-3">Task Board</h1>
-    <p class="lead">A simple Kanban board for task management</p>
+    <h1 class="display-3">Personal Board</h1>
+    <p class="lead">“Success demands singleness of purpose”</p>
   </header>
   <div class="container">
     <div class="text-center mb-5">
-      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
+      <button  id="addTask" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
     </div>
     <!-- Todo: Create a modal with a form to add tasks -->
+    <div id="myModal"  class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Task</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <label>Task Title</label> 
+               <input type="text">
+
+            <label>Task Due Date</label> 
+            
+               <input type="text">
+                
+            <label>Task Description</label>
+               <input type="text">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
     <div class="row swim-lanes text-center justify-content-between">
       <div class="col-12 col-lg-4 d-flex">
         <div id="to-do" class="card border-light mb-3 lane flex-grow-1">
