@@ -35,16 +35,21 @@
             </button>
           </div>
           <div class="modal-body">
-            <label>Task Title</label> 
-               <input type="text">
-
-            <label>Task Due Date</label> 
+            <form>
+              <div class="mb-3">
+               <label for="task-title" class="col-form-label">Task Title</label> 
+                <input type="text" class="form-control" id="task-title">
+               <label for="task-due-date" class="col-form-label">Task Due Date</label>
+                <input type="text" class="form-control" id="task-due-date">
+               </div>
+                <div class="mb-3">   <!--Description box --> 
+                <label for="task-description" class="col-form-label">Task Description</label>
+                <textarea class="form-control" id="task-description"></textarea>
+              </div>
+             </form>
             
-               <input type="text">
-                
-            <label>Task Description</label>
-               <input type="text">
           </div>
+
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Save changes</button>
