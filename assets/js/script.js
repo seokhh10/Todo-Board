@@ -9,14 +9,42 @@ function generateTaskId() {
 
 // Todo: create a function to create a task card
 function createTaskCard(task) {
-  const cardTask = $('<div').addClass('card project-card draggable my-3').attr('data-project-id', task.id);
+  const cardTask = $('<div>').addClass('card project-card draggable my-3').attr('data-project-id', task.id);
+  const headerCard = $('<div>').addClass('card-header h4').text(task.title); 
+  const bodyCard = $('<div>').addClass('card-body');
+  const descriptionCard = $('<p>').addClass('card-text').text(task.description)
+  const dueDateCard = $('<p>').addClass('card-text').text(task.dueDate)
+  const deleteCard = $('<button>').addClass('btn btn-danger delete').text('Delete').attr('data-project-id', task.id);
+  deleteCard.on('click', handleDeleteTask);
 
-}
+  if (task.dueDate && task.status !== 'done') {
+    const now = dayjs();
+    const taskDueDate = dayjs(task.dueDate,  'MM/DD/YYYY');
+
+    if (now.isSame(taskDueDate, 'day')) {
+       cardTask.addClass('bg-warning text-white');
+    } else if (now.isAfter(taskDueDate)) {
+       cardTask.addClass('bg-danger text-white');
+       deleteCard.addClass('border-light');
+    }
+    }
+
+    bodyCard.append(descriptionCard, dueDateCard, deleteCard);
+    cardTask.append(headerCard, bodyCard);
+        
+        return cardTask;
+  }
+
+
 
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
 
 }
+
+
+
+
 
 // Todo: create a function to handle adding a new task
 $(document).ready(function(){
@@ -55,10 +83,16 @@ function handleDeleteTask(event){
 
 }
 
+
+
+
 // Todo: create a function to handle dropping a task into a new status lane
 function handleDrop(event, ui) {
 
 }
+
+
+
 
 // Todo: when the page loads, render the task list, add event listeners, make lanes droppable, and make the due date field a date picker
 $(document).ready(function () {
