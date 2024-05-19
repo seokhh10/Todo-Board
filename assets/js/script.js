@@ -87,7 +87,7 @@ $(document).ready(function () {
 
   $('#myModal').on('click', '#taskSubmit', function (event) {    //modal is telling when you click button (addtask)
     event.preventDefault();                                    //function(event) is typically passed to event handler when occurs (click,submit, or keypress)  
-    //will prevent the form from being submitted in the usual way, effectively preventing the browser from navigating to a new page.
+                                                              //will prevent the form from being submitted in the usual way, effectively preventing the browser from navigating to a new page.
     const taskTitle = $('#task-title').val();
     const taskDueDate = $('#task-due-date').val();
     const taskDescription = $('#task-description').val();      //# The value is assigned to the variable, val()-method it recover the value of the selected element.
@@ -118,11 +118,15 @@ $(document).ready(function () {
 
 // Todo: create a function to handle deleting a task
 function handleDeleteTask() {
-  const idTask = $(this).attr(data-project-id);
+  const idTask = $(this).attr('data-project-id');
   let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-  console.log(data-project-id);
-  
+  tasks.forEach((task) => {
+    if (task.id === idTask) {
+      tasks.splice(tasks.indexOf(task),1 )
+    }
+  });
+  renderTaskList();
 }
 
 
@@ -130,5 +134,18 @@ function handleDeleteTask() {
 
 // Todo: when the page loads, render the task list, add event listeners, make lanes droppable, and make the due date field a date picker
 $(document).ready(function () {
+   renderTaskList();
+
+   handleAddTask();
+
+   $('.lane').droppable({
+    accept: '.draggable',
+    drop: handleDrop,
+   });
+
+   $( "#task-due-dates").datepicker({
+    changeMonth: true,
+    changeYear: true
+   });
 
 });
