@@ -126,6 +126,8 @@ function handleDeleteTask() {
       tasks.splice(tasks.indexOf(task),1 )
     }
   });
+
+  localStorage.setItem('tasks', JSON.stringify(tasks));
   renderTaskList();
 }
 
