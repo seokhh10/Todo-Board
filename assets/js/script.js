@@ -50,17 +50,33 @@ function renderTaskList() {
   const doneList = $('#done-cards');
   doneList.empty();
 
-  todos.append(createTaskCard(task));
+  for (let task of tasks) {
+    if (task.status === 'to-do') {
+      todos.append(createTaskCard(task));
+    } else if (task.status === 'in-progress') {
+      progressList.append(createTaskCard(task));
+    } else if (task.status === 'done') {
+      doneList.append(createTaskCard(task));
+    }
+    }
 
-}
+    $('.draggable').draggable({
+      opacity: 0.7,
+      zIndex: 100,
+     
+      helper: function (e) {
+        
+        const original = $(e.target).hasClass('ui-draggable')
+          ? $(e.target)
+          : $(e.target).closest('.ui-draggable');
+       
+        return original.clone().css({
+          width: original.outerWidth(),
+        });
+      },
+    });
 
-
-  
-
-  
-
-
-
+    }
 
 
 // Todo: create a function to handle adding a new task
