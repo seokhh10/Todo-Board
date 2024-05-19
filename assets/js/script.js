@@ -39,7 +39,7 @@ function createTaskCard(task) {
 
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
-  const task = JSON.parse(localStorage.getItem('task')) || [];
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
   const todos = $('#todo-cards');
   todos.empty();
