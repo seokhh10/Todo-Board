@@ -114,17 +114,15 @@ $(document).ready(function () {
 
   renderTaskList(tasks);
 });
+
+
 // Todo: create a function to handle deleting a task
-function handleDeleteTask(event) {
+function handleDeleteTask() {
+  const idTask = $(this).attr(data-project-id);
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-}
-
-
-
-
-// Todo: create a function to handle dropping a task into a new status lane
-function handleDrop(event, ui) {
-
+  console.log(data-project-id);
+  
 }
 
 
