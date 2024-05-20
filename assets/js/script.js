@@ -108,12 +108,16 @@ $(document).ready(function () {
 
     localStorage.setItem('tasks', JSON.stringify(tasks));
 
-    renderTaskList(tasks);     //is a function responsible for generating and displaying a list of task un a user interface (webpage,mobile app)
-    $('#taskModal').modal('hide'); //hide the modal after submittiong a task
-  })
-  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];  //recover any existing tasks from local storage, converts them from JSON format into a JavaScript array, 
+    renderTaskList();     //is a function responsible for generating and displaying a list of task un a user interface (webpage,mobile app)
 
-  renderTaskList(tasks);
+    $('#task-title').val('');
+    $('#task-due-date').val('');
+    $('#task-description').val('');
+
+
+    $('#taskModal').modal('hide'); //hide the modal after submitting a task
+  })
+  ;
 
   
 });
