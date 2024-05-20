@@ -82,10 +82,10 @@ function renderTaskList() {
 // Todo: create a function to handle adding a new task
 $(document).ready(function () {
   $('#addTask').click(function () {    //document is link with html, function is telling to the button addTask when click
-    $('#myModal').modal('show');       //open modal to enter a new task. 
+    $('#taskModal').modal('show');       //open modal to enter a new task. 
   });
 
-  $('#myModal').on('click', '#taskSubmit', function (event) {    //modal is telling when you click button (addtask)
+  $('#taskModal').on('click', '#taskSubmit', function (event) {    //modal is telling when you click button (addtask)
     event.preventDefault();                                    //function(event) is typically passed to event handler when occurs (click,submit, or keypress)  
                                                               //will prevent the form from being submitted in the usual way, effectively preventing the browser from navigating to a new page.
     const taskTitle = $('#task-title').val();
