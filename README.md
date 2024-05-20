@@ -11,3 +11,19 @@ A simple task board application that allows a person or a team to manage project
 - Drag and drop tasks between progress columns, with state updates that persist after refreshing.
 - Delete tasks from the board, ensuring are not added back after refreshing.
 
+## Technologies Used
+
+- HTML
+- CSS
+- jQuery
+- Day.js (for working with dates)
+- LocalStorage (for task persistence)
+
+## Images of the Board
+
+![Screenshot](./assets/images/Board1.png "ToDo Board")
+![Screenshot](./assets/images/Board2.png "Modal Task and Calendar")
+
+
+## Deployed Website
+https://seokhh10.github.io/Todo-Board/
