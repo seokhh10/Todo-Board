@@ -21,8 +21,8 @@ A simple task board application that allows a person or a team to manage project
 
 ## Images of the Board
 
-![Screenshot](./assets/images/Board1.png "ToDo Board")
-![Screenshot](./assets/images/Board2.png "Modal Task and Calendar")
+![Screenshot](./assets/Images/Board1.png "ToDo Board")
+![Screenshot](./assets/Images/Board2.png "Modal Task and Calendar")
 
 
 ## Deployed Website
