@@ -135,12 +135,15 @@ function handleDeleteTask() {
 function handleDrop(event, ui) {
    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
    const  statusTask = event.target.id;
+   const idTask = ui.draggable.attr('data-project-id');
 
    for (let task of tasks) {
     if (task.id === idTask) {
       task.status = statusTask;
     }
    }
+   localStorage.setItem('tasks', JSON.stringify(tasks));
+   renderTaskList();
 }
 
 
